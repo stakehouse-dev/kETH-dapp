@@ -1,0 +1,11 @@
+.home {
+  .content {
+    @apply text-white px-10 pb-10 flex w-full flex-col mx-auto items-center;
+    max-width: 1264px;
+    min-height: calc(100vh - 10rem);
+  }
+
+  .activity-link:hover {
+    cursor: pointer;
+  }
+}

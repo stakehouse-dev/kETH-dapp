@@ -1,0 +1,16 @@
+.questionMarkWrapper {
+  position: relative;
+  cursor: pointer;
+  background: inherit;
+}
+
+.informationCardWrapper {
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 30;
+}
+
+// .imageWrapper {
+//   position: relative;
+//   top: -2px;
+// }

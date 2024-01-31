@@ -1,0 +1,20 @@
+export default {
+  primary: '#00ED76',
+  primary50: '#00ED761A',
+  primary100: '#204B36',
+  primary300: '#3BB278',
+  primary500: '#00ed7b',
+  primary700: '#41C681',
+  background: '#121212',
+  background100: '#2D2E35',
+  background200: '#1F2023',
+  background300: '#2D2E35',
+  background400: '#ffffff1A',
+  background500: '#00000000',
+  borderColor: '#3A3A3C',
+  textBase: '#ffffff',
+  textLabel: '#888D9B',
+  textInputTitle: '#F2F4F7',
+  navItem: '#121212',
+  navItemHover: '#191b1f'
+}
