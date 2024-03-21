@@ -19,6 +19,8 @@ export const HeaderSummary = () => {
     navigate('/claim')
   }
 
+  const bsnPrice = 0 // will be set on mainnet
+
   return (
     <div className="flex gap-4 w-full mb-10">
       <div className="flex-1 p-4 bg-background100 border border-borderColor rounded-2xl">
@@ -67,23 +69,46 @@ export const HeaderSummary = () => {
         <div className="flex justify-between items-center flex-1">
           <div className="flex items-center gap-6">
             <p className="text-textBase text-5xl font-semibold">
-              {/* ${readablePrice((result?.bsnEarning || 0) * ethPrice)} */}
+              $
+              {readablePrice(
+                (result?.kETHEarning || 0) * ethPrice + (result?.bsnEarning || 0) * bsnPrice
+              )}
             </p>
-            {result?.bsnEarning && (
-              <Button size="lg" onClick={handleGoClaimBSN} className="w-32">
-                Claim
-              </Button>
-            )}
           </div>
           <div className="flex flex-col gap-2">
-            <div className="min-w-32 flex items-center justify-between">
-              <div className="flex gap-1 items-center">
+            <div className="flex items-center">
+              <div className="flex gap-1 items-center w-16">
                 <img src={BSNToken} alt="bsn" className="w-4" />
                 <p className="text-sm text-textBase">BSN</p>
               </div>
               <div className="flex gap-1 items-center">
                 <p className="text-sm text-textLabel">{roundNumber(result?.bsnEarning || 0, 2)}</p>
               </div>
+              {result?.bsnEarning ? (
+                <Button className="ml-3 !py-1" onClick={handleGoClaimBSN}>
+                  Claim BSN
+                </Button>
+              ) : (
+                <></>
+              )}
+            </div>
+
+            <div className="flex items-center">
+              <div className="flex gap-1 items-center w-16">
+                <img src={GreenETHIcon} alt="bsn" className="w-4" />
+                <p className="text-sm text-textBase">kETH</p>
+              </div>
+              <div className="flex gap-1 items-center">
+                <p className="text-sm text-textLabel flex items-center gap-2">
+                  {roundNumber(result?.kETHEarning || 0, 3)}
+                  <Tooltip
+                    message={`USD value of kETH Amount : $${readablePrice(
+                      (result?.kETHEarning || 0) * ethPrice
+                    )}`}
+                  />
+                </p>
+              </div>
+              {/* {result?.kETHEarning ? <Button onClick={handleGoClaimBSN}>Claim kETH</Button> : <></>} */}
             </div>
           </div>
         </div>

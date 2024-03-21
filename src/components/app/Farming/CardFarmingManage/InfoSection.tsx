@@ -68,7 +68,7 @@ export const InfoSection = ({ selectedMode }: InfoSectionProps) => {
       <div className="flex gap-3">
         <div className="py-2.5 px-4 bg-background500 rounded-lg border-borderColor border">
           <a
-            href={'https://docs-ipfs.joinstakehouse.com/kETH/kETH_kwETH'}
+            href={'https://docs.joinstakehouse.com/kETH/kETH_kwETH'}
             target="_blank"
             rel="noreferrer"
             className="flex gap-2">

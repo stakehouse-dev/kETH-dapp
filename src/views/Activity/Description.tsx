@@ -3,12 +3,14 @@ import { FC } from 'react'
 import ButtonAddTokenToMetamask from '@/components/app/Buttons/ButtonAddTokenToMetamask'
 import { ACTIVITY_TYPE } from '@/constants/activity'
 import { BSN, DETH, GETH, KETH, kwETH } from '@/constants/tokens'
-import { useNetworkBasedLinkFactories } from '@/hooks'
-import { humanReadableAmount } from '@/utils/global'
+import { useCustomAccount, useNetworkBasedLinkFactories } from '@/hooks'
+import { humanReadableAddress, humanReadableAmount } from '@/utils/global'
 import { getKETHLpTokenByAddress } from '@/utils/tokens'
 
 const Description: FC<{ activity: any }> = ({ activity }) => {
   const { makeEtherscanLink } = useNetworkBasedLinkFactories()
+  const { account } = useCustomAccount()
+  let interactAddress = ''
 
   switch (activity.type) {
     case ACTIVITY_TYPE.KETHDeposit:
@@ -32,6 +34,39 @@ const Description: FC<{ activity: any }> = ({ activity }) => {
             {KETH.symbol}
           </a>{' '}
           <ButtonAddTokenToMetamask token={KETH} />{' '}
+          <a
+            href={makeEtherscanLink(activity.tx)}
+            target="_blank"
+            rel="noreferrer"
+            className={'text-primary'}>
+            (check TX here)
+          </a>
+        </span>
+      )
+    case ACTIVITY_TYPE.KETHTransfer:
+      interactAddress =
+        activity.values[0] == account.address.toLowerCase()
+          ? activity.values[1]
+          : activity.values[0]
+      return (
+        <span className="description">
+          {activity.values[0] == account.address.toLowerCase() ? 'Sent' : 'Received'}{' '}
+          {humanReadableAmount(activity.values[3])}{' '}
+          <a
+            href={makeEtherscanLink(KETH.address!, false, true)}
+            target="_blank"
+            rel="noreferrer"
+            className={'text-yellow'}>
+            {KETH.symbol}
+          </a>{' '}
+          {activity.values[0] == account.address.toLowerCase() ? 'to' : 'from'}{' '}
+          <a
+            href={makeEtherscanLink(interactAddress!, false, true)}
+            target="_blank"
+            rel="noreferrer"
+            className={'text-yellow'}>
+            {humanReadableAddress(interactAddress, 4)}
+          </a>{' '}
           <a
             href={makeEtherscanLink(activity.tx)}
             target="_blank"

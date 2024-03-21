@@ -69,9 +69,22 @@ const ModalWalletConnect: FC<IModalWalletConnectProps> = ({ open, onClose }) => 
           })}
           <p className="text-xs text-textLabel text-left">
             {`By connecting a wallet, you agree to Blockswap Labs'`}{' '}
-            <a className="text-primary underline">Terms of Service</a> and acknowledge that you have
-            read and understand the{' '}
-            <a className="text-primary underline">Blockswap Protocol Disclaimer</a>.
+            <a
+              className="text-primary underline"
+              href="https://blockswap.network/terms/"
+              target="_blank"
+              rel="noreferrer">
+              Terms of Service
+            </a>{' '}
+            and acknowledge that you have read and understand the{' '}
+            <a
+              className="text-primary underline"
+              href="https://dapp.joinstakehouse.com/kethdisclaimer/"
+              target="_blank"
+              rel="noreferrer">
+              Protocol Risk Disclaimer
+            </a>
+            .
           </p>
         </div>
       </Dialog.Panel>

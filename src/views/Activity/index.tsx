@@ -1,6 +1,8 @@
 import './index.scss'
 
 import { useQuery } from '@apollo/client'
+import { ethers } from 'ethers'
+import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import tw, { styled } from 'twin.macro'
 
@@ -9,6 +11,7 @@ import { Spinner } from '@/components/shared'
 import { ActivityQuery } from '@/graphql/queries/ActivityQuery'
 import { useCustomAccount } from '@/hooks'
 
+import { ACTIVITY_TYPE } from '../../constants/activity'
 import Description from './Description'
 
 export const Activity = () => {
@@ -29,6 +32,20 @@ export const Activity = () => {
     fetchPolicy: 'cache-and-network',
     notifyOnNetworkStatusChange: true
   })
+
+  const filteredTransactions = useMemo(
+    () =>
+      transactions
+        ? transactions.filter(
+            (activity: any) =>
+              !(
+                activity.type === ACTIVITY_TYPE.KETHTransfer &&
+                [activity.values[0], activity.values[1]].includes(ethers.constants.AddressZero)
+              )
+          )
+        : [],
+    [transactions]
+  )
 
   return (
     <div className="activity">
@@ -54,13 +71,13 @@ export const Activity = () => {
                 <Spinner size={30} />
               </div>
             )}
-            {!loading && transactions && transactions.length === 0 && (
+            {!loading && filteredTransactions && filteredTransactions.length === 0 && (
               <div className="text-center py-4">No activity found</div>
             )}
             {!loading &&
-              transactions &&
-              transactions.length > 0 &&
-              transactions.map((activity: any) => (
+              filteredTransactions &&
+              filteredTransactions.length > 0 &&
+              filteredTransactions.map((activity: any) => (
                 <Row key={activity.id}>
                   <ColItem className="font-medium" isBlockCell={true}>
                     {activity.blockNumber}

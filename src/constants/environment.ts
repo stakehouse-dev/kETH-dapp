@@ -11,6 +11,7 @@ type EnvConfig = {
   kwETHTokenAddress: string | undefined
   bsnTokenAddress: string | undefined
   gETHTokenAddress: string | undefined
+  yETHTokenAddress: string | undefined
   GRAPHQL_URL: string | undefined
   LSD_GRAPHQL_URL: string | undefined
   kETHStrategyContractAddress: string | undefined
@@ -31,6 +32,7 @@ const envConfigs: { [key: number]: EnvConfig } = {
     kwETHTokenAddress: process.env.REACT_APP_MAINNET_KWETH_TOKEN_ADDRESS,
     bsnTokenAddress: process.env.REACT_APP_MAINNET_BSN_TOKEN_ADDRESS,
     gETHTokenAddress: process.env.REACT_APP_MAINNET_GETH_TOKEN_ADDRESS,
+    yETHTokenAddress: process.env.REACT_APP_MAINNET_YETH_TOKEN_ADDRESS,
     GRAPHQL_URL: process.env.REACT_APP_MAINNET_GRAPHQL_URL,
     LSD_GRAPHQL_URL: process.env.REACT_APP_LSD_GRAPHQL_URL,
     /////////////////
@@ -50,6 +52,7 @@ const envConfigs: { [key: number]: EnvConfig } = {
     kwETHTokenAddress: process.env.REACT_APP_GOERLI_KWETH_TOKEN_ADDRESS,
     bsnTokenAddress: process.env.REACT_APP_GOERLI_BSN_FARMING_ADDRESS,
     gETHTokenAddress: process.env.REACT_APP_GOERLI_GETH_TOKEN_ADDRESS,
+    yETHTokenAddress: process.env.REACT_APP_GOERLI_YETH_TOKEN_ADDRESS,
     GRAPHQL_URL: process.env.REACT_APP_GOERLI_GRAPHQL_URL,
     LSD_GRAPHQL_URL: process.env.REACT_APP_LSD_GRAPHQL_URL,
     /////////////////

@@ -1,5 +1,6 @@
 export enum ACTIVITY_TYPE {
   KETHDeposit = 'KETH.Deposit',
+  KETHTransfer = 'KETH.Transfer',
   KETHWithdraw = 'KETH.Withdraw',
   DETHDeposit = 'DETH.Deposit',
   DETHWithdrawToETH = 'DETH.WithdrawToETH',

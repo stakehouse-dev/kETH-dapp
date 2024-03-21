@@ -7,6 +7,7 @@ import DETHLPIcon from '@/assets/images/icon-deth-lp.svg'
 import ETHIcon from '@/assets/images/icon-eth.svg'
 import KETHIcon from '@/assets/images/icon-keth.svg'
 import YelloETHIcon from '@/assets/images/icon-yellow-eth.svg'
+import YETHICON from '@/assets/images/icon-yeth.svg'
 
 import { config } from './environment'
 
@@ -97,7 +98,15 @@ export const GETH: TokenT = {
   address: config.gETHTokenAddress
 }
 
-export const KETH_LP_TOKENS: TokenT[] = [STETH, RETH, ETH]
+export const YETH: TokenT = {
+  id: 8,
+  symbol: 'yETH',
+  label: 'Yearn Finance Staked ETH',
+  icon: YETHICON,
+  address: config.yETHTokenAddress
+}
+
+export const KETH_LP_TOKENS: TokenT[] = [STETH, RETH, ETH, YETH]
 export const KETH_LP_TOKENS_FOR_ACTIVITY: TokenT[] = [STETH, WSTETH, RETH, DETH, ETH]
 
 export const DETH_LP_TOKENS: TokenT[] = [DETH]

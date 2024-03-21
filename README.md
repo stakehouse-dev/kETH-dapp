@@ -6,7 +6,7 @@
 
 kETH Farming Dapp allows you to interact with the kETH Protocol smart contracts.
 
-For more information, please take a look at the docs: https://docs-ipfs.joinstakehouse.com/kETH/kETH_kwETH/
+For more information, please take a look at the docs: https://docs.joinstakehouse.com/kETH/kETH_kwETH/
 
 ## Software is provided as is
 

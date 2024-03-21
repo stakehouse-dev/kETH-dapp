@@ -316,7 +316,7 @@ export const readablePrice = (price: number) => {
   if (price > 1000000000) {
     return `${(price / 1000 / 1000 / 1000).toLocaleString(undefined, {
       maximumFractionDigits: 2
-    })}T`
+    })}B`
   }
 
   if (price > 1000000) {

@@ -71,7 +71,7 @@ const Topbar: FC = () => {
             <NavItem active>Home</NavItem>
           </Link>
           <a
-            href={'https://docs-ipfs.joinstakehouse.com/kETH/LST_Optimizer_dApp'}
+            href={'https://docs.joinstakehouse.com/kETH/LST_Optimizer_dApp'}
             target="_blank"
             rel="noreferrer">
             <NavItem active={pathname.includes('more')}>More</NavItem>
